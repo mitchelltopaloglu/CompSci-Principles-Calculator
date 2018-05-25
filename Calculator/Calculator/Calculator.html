@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Mitchell Calc Project  </title>
+    <style>
+
+        body {
+    padding-top: 300px;
+    padding-right: 500px;
+    padding-bottom: 100px;
+    padding-left: 500px;
+}
+        #calc-contain /*.center is cool, but the margins are messed up */ {
+            background-color: #353839;
+            position: relative;
+            width: 400px;
+            border: 2px solid black;
+            border-radius: 4px;
+            
+        }   
+        input[type=button] {
+            background-color: #cbcbcb;
+            width: 20%;
+            font-size: 20px;
+            font-weight: 900;   
+            margin: 2%;
+            border-radius: 4px;
+            color: #353839
+        }
+        input[type=text] {
+            position: relative;
+            display: block;
+            width: 90%;
+            margin: 5px auto;
+            font-size: 20px;
+            background-color:#cbcbcb;
+            border-color: black;
+            color: #353839
+        }
+    </style>
+</head>
+
+<body>
+    <br/ >
+    <div id="calc-contain">
+        
+        <!-- the "meat" of the calculator-->
+        <form name="calculator">
+           <input type= "text" name="answer" /> 
+           <br />
+            <input type= "button" value= " 7 " onclick="calculator.answer.value += '7'" />
+          <input type= "button" value= " 8 " onclick="calculator.answer.value += '8'" />
+          <input type= "button" value= " 9 " onclick="calculator.answer.value += '9'" />
+           <input type= "button" value= " / " onclick="calculator.answer.value += '/'" />
+           <br />
+           <input type= "button" value= " 4 " onclick="calculator.answer.value += '4'" />
+           <input type= "button" value= " 5 " onclick="calculator.answer.value += '5'" />
+           <input type= "button" value= " 6 " onclick="calculator.answer.value += '6'" />
+           <input type= "button" value= " x " onclick="calculator.answer.value += '*'" />
+           <br />
+           <input type= "button" value= " 1 " onclick="calculator.answer.value += '1'" />
+            <input type= "button" value= " 2 " onclick="calculator.answer.value += '2'" />
+           <input type= "button" value= " 3 " onclick="calculator.answer.value += '3'" />
+           <input type= "button" value= " - " onclick="calculator.answer.value += '-'" />
+           <br />   
+          <input type= "button" value= " 0 " onclick="calculator.answer.value += '0'" /> 
+           <input type= "button" value= " c " onclick="calculator.answer.value = ''" />
+           <input type= "button" value= " = " onclick="doCalculation()" />
+           <!-- onclick="calculator.answer.value = eval(calculator.answer.value)" -->
+           <input type= "button" value= " + " onclick="calculator.answer.value += '+'" /> 
+           <br />
+           <input type= "button" value= "." onclick="calculator.answer.value += '.'" />
+        <input type= "button" value= "XOR" onclick="calculator.answer.value += '^'"/>
+         <input type= "button" value= "%" onclick= "calculator.answer.value += '*.01*'" -->
+       <!-- <input type= "button" value= "%" onclick="calculator.answer.value += '*.01*'"/> -->
+       <input type= "button" value= "MOD" onclick="calculator.answer.value += '%'" />
+           <br />
+
+        </form>
+
+    </div>
+
+    <script>
+var num= calculator.answer.value
+
+//to solve the problem of eval dividing by zero
+function doCalculation(){
+    if (calculator.answer.value.includes("/0")) {
+        calculator.answer.value = "Undefined"
+        return;
+    }
+    else if (calculator.answer.value.includes("^")) {
+        calculator.answer.value = eval(calculator.answer.value) 
+    }
+
+    calculator.answer.value = eval(calculator.answer.value) 
+}
+
+// reference
+function percent() {  
+      
+       calculator.answer.value = calculator.answer.value * .01 ;
+  
+  } 
+ 
+//function btnMod()
+//{   document.calcuator.display.value += "%"}
+
+    </script>
+</body>
+
+</html>
+
